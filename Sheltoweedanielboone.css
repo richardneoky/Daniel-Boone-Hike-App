@@ -1,0 +1,182 @@
+/*mapp CSS*/
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+/*button CSS */
+
+.button {
+    width: 60%;
+    /*background-color: #D6D58E;*/
+    overflow: auto;
+    z-index: -1;
+    display: flex;
+   flex-direction: column;
+    justify-content: flex-end; 
+  }
+  
+  .button a{
+    float: left;
+    width: 20%;
+    min-width: 40px;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 25px;
+    position: relative;
+     background-color: #73461F;
+     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .button a:hover {
+    background-color: #F2C4B3;
+    
+  }
+  
+  .active {
+    background-color: #F2C4B3;
+  }
+  
+  
+  
+  
+  
+  
+    @media only screen and (max-width: 600px) {
+    .button {
+    width: 20%;
+    /*background-color: #D6D58E;*/
+    overflow: auto;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .button a{
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 25px;
+    position: relative;
+     background-color: #73461F;
+     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .button a:hover {
+    background-color: #F2C4B3;
+    
+  }
+  
+  .active {
+    background-color: #F2C4B3;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    }
+    @media only screen and (min-width: 601px) {
+    .button {
+    width: 20%;
+    /*background-color: #D6D58E;*/
+    overflow: auto;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  
+  }
+  
+  .button a{
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 25px;
+    position: relative;
+     background-color: #73461F;
+     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .button a:hover {
+    background-color: #F2C4B3;
+    
+  }
+  
+  .active {
+    background-color: #F2C4B3;
+  }
+    }
+  
+  
+  
+  
+  
+  
+  
+    
+    @media only screen and (min-width: 300px) {
+    .button {
+    width: 20%;
+    /*background-color: #D6D58E;*/
+    overflow: auto;
+    z-index: -1;
+  
+  }
+  
+  .button a{
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 25px;
+    position: relative;
+     background-color: #73461F;
+  }
+  
+  .button a:hover {
+    background-color: #F2C4B3;
+    
+  }
+  
+  .active {
+    background-color: #F2C4B3;
+  }
+    }
+  
+  /*buttons end*/
+
+  /*markers*/
+  .marker{
+    display: none;
+   width:  40px;
+   height: 45px;
+  background-size: 100%;
+  }
+  
+  .landmark{
+    z-index: 9999;
+  }
+  
+  
+  

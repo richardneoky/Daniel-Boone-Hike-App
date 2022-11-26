@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheltowee Trace + Daniel Boone</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="Sheltoweedanielboone.js"></script>
+    <link href="./Sheltoweedanielboone.css" rel="stylesheet" />
+</head>
+
+<body>
+<div id="map"></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicmlubWFuODciLCJhIjoiY2s5ZDRrOXNmMDN6djNmcDd0eHVhcXNnMSJ9.lSA6fQZIptHf4g5lmD6SMA';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/rinman87/clasow020002o14ljdoi1vzwq', // style URL
+        center: [-83.6667, 37.8167], // starting position [lng, lat]
+        zoom: 7.5// starting zoom
+    });
+    </script>
+
+    <!--Buttons begin-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="button">
+
+        <a class="active" href="#"><i class="fa fa-map"></i></a>
+        <a href="#" onclick="toggle('signs')"><i class="fa fa-map-signs"></i></a>
+        <!--Trailheads-->
+        
+        <a href="#" onclick="toggle('closures')"><i class="fa fa-exclamation-triangle"></i></a>
+        <!--Route Closures/Alerts-->
+        <a href="#" onclick="toggle('camping')"><i class="fa fa-fire"></i></a>
+        <!--Camping-->
+        <a href="#" onclick="toggle('hotels')"><i class="fa fa-bed"></i></a>
+        <!--Hotels-->
+        <a href="#" onclick="toggle('beer')"><i class="fa fa-beer"></i></a>
+        <!--Beer/Breweries/Dives-->
+        <a href="#" onclick="toggle('food')"><i class="fa fa-spoon"></i></a>
+        <!--Food/General Stores/Restaurants-->
+        <a href="#" onclick="toggle('sights')"><i class="fa fa-eye"></i></a>
+        <!--Sight Seeing/Historical/Nature-->
+      </div>
+    
+      <!--Buttons End-->
+    <!--Zoom Controls-->
+  <script>
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+  </script>
+  <script>
+    //MarkerJs
+
+  
+
+    function createMarker(lng, lat, name, info, type, isLandmark, customImg) {
+
+
+      const popup = new mapboxgl.Popup().setHTML(
+        `<h3>${name}</h3><p>${info}</p>`
+      );
+
+      const el = document.createElement('div');
+      el.className = `marker ${type}`;
+      if (isLandmark) el.className += ' landmark'
+      if (customImg) el.style.backgroundImage = `url(${customImg})`
+      el.style.display = 'none';
+      const marker = new mapboxgl.Marker(el)
+        .setLngLat([lng, lat])
+        .setPopup(popup)
+        .addTo(map);
+    }
+
+    const mapMarkerData = [
+        //Food, beer, resupply
+      {
+        //Miguel's
+        lng: -83.68291,
+        lat: 37.78336,
+        name: 'Miguels',
+        info: 'Miguels Pizza 1890 Natural Bridge Rd, Slade, KY 40376 http://www.miguelspizza.com/ +16066631975 ',
+        type: 'food',
+        isLandMark: false,
+        customImg: 'https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k',
+      },
+
+//North and south terminus/Trailheads
+{
+        //Northern Terminus
+        lng: -83.41622,
+        lat: 38.38527,
+        name: 'Northern terminus',
+        info: 'Northern Terminus ',
+        type: 'signs',
+        isLandMark: true,
+        customImg: 'https://lh3.googleusercontent.com/pw/AL9nZEV4qk-GTEzhUMiH2V8_m89prruR_YLZVHkInaz6LVs0ZGf6IePBgxmv8MGG2acfHrnGiXU5UemVz54Wq8vLExvckZosfdAE_u8iftAG4EOln5uGqKc=w2400',
+      },
+
+      {
+        //Southern Terminus
+        lng: -84.69739,
+        lat: 36.48865,
+        name: 'Southern Terminus',
+        info: 'Southern Terminus ',
+        type: 'signs',
+        isLandMark: true,
+        customImg: 'https://lh3.googleusercontent.com/pw/AL9nZEV4qk-GTEzhUMiH2V8_m89prruR_YLZVHkInaz6LVs0ZGf6IePBgxmv8MGG2acfHrnGiXU5UemVz54Wq8vLExvckZosfdAE_u8iftAG4EOln5uGqKc=w2400',
+      },
+
+
+
+    ]
+
+
+
+
+
+
+
+    for (const markerData of mapMarkerData) {
+        createMarker(markerData.lng, markerData.lat, markerData.name, markerData.info, markerData.type, markerData.isLandMark, markerData.customImg)
+      }
+
+  </script>
+
+</body>
+</html>
+</body>
+</html>
